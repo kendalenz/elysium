@@ -1,1 +1,1 @@
-# earthfoods
+# EarthenFoods
