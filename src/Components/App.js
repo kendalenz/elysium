@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Home from './Home';
 
 const App = () => {
   return (
@@ -28,6 +29,7 @@ const App = () => {
           </ul>
         </div>
       </nav>
+      <Home />
     </div>
   )
 };

@@ -8,3 +8,7 @@
     background-size:cover;
     background-attachment: fixed;
   }
+
+  .hero-text {
+    text-align: center;
+  }
