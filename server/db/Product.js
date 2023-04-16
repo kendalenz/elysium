@@ -1,4 +1,4 @@
-const { UUIDV4 } = require('sequelize');
+const { UUID, UUIDV4, STRING, DECIMAL, TEXT } = require('sequelize');
 const conn = require('./conn');
 
 const Product = conn.define('product', {
@@ -13,20 +13,23 @@ const Product = conn.define('product', {
     validate: {
         notEmpty: true
     },
+  test: {
+    type: STRING,
+  },
     price: {
-        type: DECIMAL,
-        allowNull: false,
-        validate: {
-            notEmpty: true
-        },
+      type: DECIMAL,
+      allowNull: false,
+      validate: {
+        notEmpty: true
+      },
     },
     photo: {
       type: TEXT,
       defaultValue: '',
       get: function () {
         const prefixPNG = 'data:image/png;base64,';
-        const prefixJPG = 'data:image/jpeg;base64,';
-        const data = this.getDataValue('avatar') || '';
+        const prefixJPG = 'data:image/jpg;base64,';
+        const data = this.getDataValue('photo') || '';
         if (data.startsWith(prefixPNG)) {
         return data;
         } else if (data.startsWith(prefixJPG)) {

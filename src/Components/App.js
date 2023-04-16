@@ -1,12 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Routes, Route } from 'react-router-dom';
 import Home from './Home';
+import Products from './Product/Products';
 
 const App = () => {
   return (
     <div>
       <nav className='navbar navbar-expand-sm'>
-        <Link className='navbar-brand link-dark mx-4'>Earthen Foods</Link>
+        <Link className='navbar-brand link-dark mx-4' to='/'>Earthen Foods</Link>
         <button 
           type='button' 
           data-bs-toggle='collapse' 
@@ -21,7 +22,7 @@ const App = () => {
         <div id='navbarNav' class="collapse navbar-collapse mx-4 justify-content-end">
           <ul className='navbar-nav'>
             <li className='nav-item'>
-              <Link className='link-dark mx-4' to='/#'>Shop</Link>
+              <Link className='link-dark mx-4' to='/products'>Shop</Link>
             </li>
             <li className='nav-item'>
               <Link className='link-dark mx-4' to='/#'>Cart</Link>
@@ -29,6 +30,10 @@ const App = () => {
           </ul>
         </div>
       </nav>
+      <Routes>
+        {/* <Route path="/" element={<Home />} /> */}
+        <Route path="/products" element={<Products />}/>
+      </Routes>
       <Home />
     </div>
   )
