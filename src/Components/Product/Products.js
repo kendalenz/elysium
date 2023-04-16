@@ -18,8 +18,9 @@ const Products = () => {
 
   return (
     <div>
-      {
-        products.map(product => {
+      <hr></hr>
+      {/* {
+        products.map(product => (
          <Card
           id={props.id}
           key={props.id}
@@ -27,8 +28,8 @@ const Products = () => {
           name={props.name}
           price={props.price}
         />
-        })
-      }
+        ))
+      } */}
     </div>
   );
 };
