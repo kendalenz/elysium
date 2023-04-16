@@ -2,7 +2,7 @@ import axios from "axios";
 
 const products = (state = [], action) => {
   if(action.type === 'GET_PRODUCTS') {
-    return action.dogs;
+    return action.products;
   }
   return state;
 };

@@ -1,9 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { Link, Routes, Route } from 'react-router-dom';
+import { fetchProducts } from '../store/products';
 import Home from './Home';
 import Products from './Product/Products';
 
 const App = () => {
+  const dispatch = useDispatch();
+  
+  useEffect(() => {
+    dispatch(fetchProducts());
+  }, []);
+
   return (
     <div>
       <nav className='navbar navbar-expand-sm'>
