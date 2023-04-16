@@ -22,9 +22,8 @@ const syncAndSeed = async() => {
   const productList = [
     {
       name: 'Moon Juice Reishi Nootropic Supershroom',
-      test: 'what is happening',
       price: '48.00',
-      photo: 'reishiPhoto'
+      photo: reishiPhoto
     }
   ];
 

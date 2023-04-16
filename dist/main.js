@@ -4351,7 +4351,15 @@ const Products = () => {
       src: props.photo
     }), props.name, props.price);
   };
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("hr", null));
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, products.map(product => {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Card, {
+      id: product.id,
+      key: product.id,
+      photo: product.photo,
+      name: product.name,
+      price: product.price
+    });
+  }));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Products);
 

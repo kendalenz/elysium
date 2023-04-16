@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 const Products = () => {
-  const { products } = useSelector(state => state);
+  const { products } = useSelector((state) => state);
 
   const Card = (props) => {
     return (
@@ -18,18 +18,20 @@ const Products = () => {
 
   return (
     <div>
-      <hr></hr>
-      {/* {
-        products.map(product => (
-         <Card
-          id={props.id}
-          key={props.id}
-          photo={props.photo}
-          name={props.name}
-          price={props.price}
-        />
-        ))
-      } */}
+      {
+        products.map((product) => {
+          return (
+            <Card
+           id={product.id}
+           key={product.id}
+           photo={product.photo}
+           name={product.name}
+           price={product.price}
+            />
+          )
+          
+})
+      }
     </div>
   );
 };
