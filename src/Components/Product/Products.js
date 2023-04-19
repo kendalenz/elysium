@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 
 const Products = () => {
@@ -7,12 +7,16 @@ const Products = () => {
 
   const Card = (props) => {
     return (
-      <div>
+      <div className="card mx-4 my-4">
         <img
           src={props.photo}
+          className="card-img-top"
         />
-        {props.name}
-        {props.price}
+        <div className="card-text">
+          {props.name}
+          <br/>
+          ${props.price}
+        </div>
       </div>
     )
   };
@@ -22,15 +26,16 @@ const Products = () => {
     {
       products.map((product) => {
         return (
-          <Card
-            id={product.id}
-            key={product.id}
-            photo={product.photo}
-            name={product.name}
-            price={product.price}
-          />
-            
-        )
+          <div className='d-flex flex-row flex-wrap justify-content-center'>
+            <Card
+              id={product.id}
+              key={product.id}
+              photo={product.photo}
+              name={product.name}
+              price={product.price}
+            />
+           </div>
+        );
       })
     }
     </div>

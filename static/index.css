@@ -12,3 +12,17 @@
   .hero-text {
     text-align: center;
   }
+
+  /* .card-bg {
+    width: 10rem;
+    height: 10rem;
+    background-color: blue;
+  } */
+
+  .card {
+    width: 15rem;
+  }
+
+  #product-img {
+    width: 13rem;
+  }

@@ -7,7 +7,7 @@ import Products from './Product/Products';
 
 const App = () => {
   const dispatch = useDispatch();
-  
+
   useEffect(() => {
     dispatch(fetchProducts());
   }, []);
@@ -20,14 +20,14 @@ const App = () => {
           type='button' 
           data-bs-toggle='collapse' 
           data-bs-target='#navbarNav' 
-          className='navbar-toggler'
+          className='navbar-toggler mx-4'
           aria-controls='navbarNav'
           aria-expanded='false'
           aria-label='Toggle navigation'
         >
           <span className='navbar-toggler-icon'></span>
         </button>
-        <div id='navbarNav' class="collapse navbar-collapse mx-4 justify-content-end">
+        <div id='navbarNav' className="collapse navbar-collapse mx-4 justify-content-end">
           <ul className='navbar-nav'>
             <li className='nav-item'>
               <Link className='link-dark mx-4' to='/products'>Shop</Link>
