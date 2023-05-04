@@ -17,17 +17,28 @@ const getPhoto = (path) => {
 
 const syncAndSeed = async() => {
   await conn.sync({force: true});
-  const reishiPhoto = await getPhoto(path.join(__dirname, '../../static/reishi.jpg'));
-
+  const reishiPhoto = await getPhoto(path.join(__dirname, '../../static/products/reishi.jpg'));
+  const honeyPhoto = await getPhoto(path.join(__dirname, '../../static/products/honey.jpg'));
+  const wellbelPhoto = await getPhoto(path.join(__dirname, '../../static/products/wellbelWomen.jpg'));
   const productList = [
     {
       name: 'Moon Juice Reishi Nootropic Supershroom',
       price: '48.00',
       photo: reishiPhoto
+    }, 
+    {
+      name: 'Falmingo Estate Royal Nectar Manuka Honey',
+      price: '135.00',
+      photo: honeyPhoto
+    },
+    {
+      name: 'Wellbel Women',
+      price: '68.00',
+      photo: wellbelPhoto
     }
   ];
 
-  const [reishi] = await Promise.all(
+  const [reishi, honey] = await Promise.all(
     productList.map(
       product => Product.create(product)
     )

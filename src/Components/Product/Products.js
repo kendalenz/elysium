@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 
 const Products = () => {
   const { products } = useSelector((state) => state);
-  console.log( products)
 
   const Card = (props) => {
     return (
@@ -22,11 +21,11 @@ const Products = () => {
   };
 
   return (
-    <div>
+    <div className='d-flex flex-row flex-wrap justify-content-center'>
     {
       products.map((product) => {
         return (
-          <div className='d-flex flex-row flex-wrap justify-content-center'>
+          <div>
             <Card
               id={product.id}
               key={product.id}
