@@ -4,6 +4,7 @@ import { Link, Routes, Route } from 'react-router-dom';
 import { fetchProducts } from '../store/products';
 import Home from './Home';
 import Products from './Product/Products';
+import Product from './Product/Product';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -41,6 +42,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<Products />}/>
+        <Route path="/products/:id" element={<Product />}/>
       </Routes>
       {/* <Home /> */}
     </div>
