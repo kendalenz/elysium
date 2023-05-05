@@ -7,15 +7,17 @@ const Products = () => {
   const Card = (props) => {
     return (
       <div className="card mx-4 my-4">
-        <img
-          src={props.photo}
+        <a href={`#/products/${props.id}`}>
+          <img
+            src={props.photo}
           className="card-img-top"
-        />
-        <div className="card-text">
-          {props.name}
-          <br/>
-          ${props.price}
-        </div>
+          />
+          <div className="card-text">
+            {props.name}
+            <br/>
+            ${props.price}
+          </div>
+        </a>
       </div>
     )
   };

@@ -21,3 +21,8 @@
   #product-img {
     width: 13rem;
   }
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
