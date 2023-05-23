@@ -1,5 +1,6 @@
 const conn = require('./conn');
 const Product = require('./Product');
+const User = require('./User');
 const fs = require('fs');
 const path = require('path');
 
@@ -20,6 +21,22 @@ const syncAndSeed = async() => {
   const reishiPhoto = await getPhoto(path.join(__dirname, '../../static/products/reishi.jpg'));
   const honeyPhoto = await getPhoto(path.join(__dirname, '../../static/products/honey.jpg'));
   const wellbelPhoto = await getPhoto(path.join(__dirname, '../../static/products/wellbelWomen.jpg'));
+  
+  const userList = [
+    {
+      firstName: 'Kendal',
+      lastName: 'Enz',
+      password: '123',
+      email: 'kendal.enz@gmail.com'
+    }
+  ];
+
+  const [kendal] = await Promise.all(
+    userList.map(
+      user => User.create(user)
+    )
+  );
+  
   const productList = [
     {
       name: 'Moon Juice Reishi Nootropic Supershroom',
@@ -46,5 +63,6 @@ const syncAndSeed = async() => {
 
 module.exports = {
     syncAndSeed,
+    User,
     Product
 };

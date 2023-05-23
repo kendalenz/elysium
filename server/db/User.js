@@ -1,4 +1,4 @@
-const { UUIDV4, STRING } = require('sequelize');
+const { UUIDV4, STRING, UUID } = require('sequelize');
 const conn = require('./conn');
 
 const User = conn.define('user', {
@@ -29,3 +29,5 @@ const User = conn.define('user', {
     unique: true
   }
 });
+
+module.exports = User;

@@ -10,5 +10,6 @@ app.get('/', (req, res)=> res.sendFile(path.join(__dirname, '../static/index.htm
 //or res.render?
 
 app.use('/api/products', require('./api/products'));
+app.use('/api/users', require('./api/users'));
 
 module.exports = app;
