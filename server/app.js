@@ -3,8 +3,8 @@ const app = express();
 const path = require('path');
 const cors = require('cors');
 
-// app.use(express.json());
-app.use(express.urlencoded({ limit: '50mb', extended: false }));
+app.use(express.json());
+// app.use(express.urlencoded({ limit: '50mb', extended: false }));
 
 app.use('/dist', express.static(path.join(__dirname, '../dist')));
 app.use('/static', express.static(path.join(__dirname, '../static')));

@@ -4446,6 +4446,73 @@ const Products = () => {
 
 /***/ }),
 
+/***/ "./src/store/auth.js":
+/*!***************************!*\
+  !*** ./src/store/auth.js ***!
+  \***************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "attemptLogin": () => (/* binding */ attemptLogin),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
+/* harmony export */   "loginWithToken": () => (/* binding */ loginWithToken),
+/* harmony export */   "logout": () => (/* binding */ logout)
+/* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/lib/axios.js");
+/* harmony import */ var ___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! . */ "./src/store/index.js");
+
+
+const auth = (state = {}, action) => {
+  if (action.type === 'SET_AUTH') {
+    return action.auth;
+  }
+  if (action.type === 'UPDATE_AUTH') {
+    state = {
+      ...state,
+      auth: action.auth
+    };
+  }
+  return state;
+};
+const logout = () => {
+  window.localStorage.removeItem('token');
+  return {
+    type: 'SET_AUTH',
+    auth: {}
+  };
+};
+const loginWithToken = () => {
+  return async dispatch => {
+    const token = (0,___WEBPACK_IMPORTED_MODULE_0__.getToken)();
+    if (token) {
+      const response = await axios__WEBPACK_IMPORTED_MODULE_1__["default"].get('/api/auth', {
+        headers: {
+          authorization: token
+        }
+      });
+      dispatch({
+        type: 'SET_AUTH',
+        auth: response.data
+      });
+    }
+  };
+};
+const attemptLogin = credentials => {
+  return async dispatch => {
+    const response = await axios__WEBPACK_IMPORTED_MODULE_1__["default"].post('/api/auth', credentials);
+    (0,___WEBPACK_IMPORTED_MODULE_0__.setToken)(response.data);
+    dispatch(loginWithToken());
+  };
+};
+
+//add edit, add and delete
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (auth);
+
+/***/ }),
+
 /***/ "./src/store/index.js":
 /*!****************************!*\
   !*** ./src/store/index.js ***!
@@ -4455,23 +4522,38 @@ const Products = () => {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "attemptLogin": () => (/* reexport safe */ _auth__WEBPACK_IMPORTED_MODULE_1__.attemptLogin),
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
-/* harmony export */   "fetchProducts": () => (/* reexport safe */ _products__WEBPACK_IMPORTED_MODULE_1__.fetchProducts)
+/* harmony export */   "fetchProducts": () => (/* reexport safe */ _products__WEBPACK_IMPORTED_MODULE_2__.fetchProducts),
+/* harmony export */   "getToken": () => (/* binding */ getToken),
+/* harmony export */   "loginWithToken": () => (/* reexport safe */ _auth__WEBPACK_IMPORTED_MODULE_1__.loginWithToken),
+/* harmony export */   "logout": () => (/* reexport safe */ _auth__WEBPACK_IMPORTED_MODULE_1__.logout),
+/* harmony export */   "setToken": () => (/* binding */ setToken)
 /* harmony export */ });
-/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
-/* harmony import */ var redux_thunk__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! redux-thunk */ "./node_modules/redux-thunk/es/index.js");
+/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
+/* harmony import */ var redux_thunk__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! redux-thunk */ "./node_modules/redux-thunk/es/index.js");
 /* harmony import */ var redux_logger__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux-logger */ "./node_modules/redux-logger/dist/redux-logger.js");
 /* harmony import */ var redux_logger__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(redux_logger__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _products__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./products */ "./src/store/products.js");
+/* harmony import */ var _auth__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./auth */ "./src/store/auth.js");
+/* harmony import */ var _products__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./products */ "./src/store/products.js");
 
 
 
 
-const reducer = (0,redux__WEBPACK_IMPORTED_MODULE_2__.combineReducers)({
-  products: _products__WEBPACK_IMPORTED_MODULE_1__["default"]
+
+const getToken = () => {
+  return window.localStorage.getItem('token');
+};
+const setToken = data => {
+  return window.localStorage.setItem('token', data);
+};
+const reducer = (0,redux__WEBPACK_IMPORTED_MODULE_3__.combineReducers)({
+  auth: _auth__WEBPACK_IMPORTED_MODULE_1__["default"],
+  products: _products__WEBPACK_IMPORTED_MODULE_2__["default"]
 });
-const store = (0,redux__WEBPACK_IMPORTED_MODULE_2__.createStore)(reducer, (0,redux__WEBPACK_IMPORTED_MODULE_2__.applyMiddleware)(redux_thunk__WEBPACK_IMPORTED_MODULE_3__["default"], (redux_logger__WEBPACK_IMPORTED_MODULE_0___default())));
+const store = (0,redux__WEBPACK_IMPORTED_MODULE_3__.createStore)(reducer, (0,redux__WEBPACK_IMPORTED_MODULE_3__.applyMiddleware)(redux_thunk__WEBPACK_IMPORTED_MODULE_4__["default"], (redux_logger__WEBPACK_IMPORTED_MODULE_0___default())));
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (store);
+
 
 
 /***/ }),
