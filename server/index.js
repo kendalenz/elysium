@@ -1,3 +1,9 @@
+// try {
+//   require('../.secrets');
+// } catch(err) {
+//   console.log(err);
+// }
+
 const app = require('./app');
 const { syncAndSeed } = require('./db');
 

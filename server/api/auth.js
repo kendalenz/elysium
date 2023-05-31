@@ -2,8 +2,9 @@ const express = require('express');
 const app = express.Router();
 const { User } = require('../db');
 const { isLoggedIn } = require('./middleware');
-
 const passport = require('passport');
+
+module.exports = app;
 
 app.post('/', async(req, res, next)=> {
   try {
