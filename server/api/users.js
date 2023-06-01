@@ -7,9 +7,17 @@ module.exports = app;
 
 app.use(express.json());
 
-app.post('/', async(req, res, next) => {
+app.get('/', async(req, res, next) => {
   try {
-    res.send(await User.create(req.body));
+    res.send(await User.findAll());
+  } catch(err) {
+    next(err);
+  }
+});
+
+app.get('/:id', isLoggedIn, async (req, res, next) => {
+  try {
+    res.send(req.user);
   } catch (err) {
     next(err);
   }
@@ -32,17 +40,9 @@ app.put('/:id', async (req, res, next) => {
   }
 });
 
-app.get('/', async(req,res, next) => {
+app.post('/', async(req, res, next) => {
   try {
-    res.send(await User.findAll());
-  } catch(err) {
-    next(err);
-  }
-});
-
-app.get('/:id', isLoggedIn, async (req, res, next) => {
-  try {
-    res.send(req.user);
+    res.send(await User.create(req.body));
   } catch (err) {
     next(err);
   }

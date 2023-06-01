@@ -3,13 +3,14 @@ const app = express.Router();
 const { User } = require('../db');
 const { isLoggedIn } = require('./middleware');
 
-//possibly delete
-// const passport = require('passport');
-
 module.exports = app;
 
 app.post('/', async(req, res, next)=> {
   try {
+    console.log('what the fuck')
+    console.log(req.body)
+    const { email, password } = req.body;
+    // res.send(await User.authenticate({ email, password }));
     res.send(await User.authenticate(req.body));
   }
   catch(ex){
@@ -26,7 +27,7 @@ app.post('/register', async (req, res, next)=> {
   }
 });
   
-app.get('/', isLoggedIn, async(req, res, next)=> {
+app.get('/', isLoggedIn, (req, res, next)=> {
   try {
     res.send(req.user);
   }
@@ -35,14 +36,25 @@ app.get('/', isLoggedIn, async(req, res, next)=> {
   }
 });
 
-// app.put('/', isLoggedIn, async(req, res, next)=> {
-//   try {
-//     const user = await User.findByToken(req.headers.authorization)
-//     await user.update(req.body);
-//     res.send(user);
-//   }
-//   catch(ex){
-//     next(ex);
-//   }
-// });
+app.put('/', isLoggedIn, async(req, res, next)=> {
+  try {
+    const user = await User.findByToken(req.headers.authorization)
+    await user.update(req.body);
+    res.send(user);
+  }
+  catch(ex){
+    next(ex);
+  }
+});
+
+app.post('/register', async(req, res, next)=> {
+  try {
+    const user = await User.create(req.body);
+    res.send(user.generateToken());
+  }
+  catch(ex){
+    next(ex);
+  }
+});
+
   

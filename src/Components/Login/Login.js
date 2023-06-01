@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import { attemptLogin } from '../../store';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 const Login = () => {
+  const { auth } = useSelector((state) => state);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const [credentials, setCredentials] = useState({
     email: '',
     password: ''
@@ -17,13 +20,11 @@ const Login = () => {
     setCredentials({ ...credentials, [ev.target.name]: ev.target.value });
   };
 
-  const navigate = useNavigate();
-  
-  const login = async(ev) => {
+  const login = (ev) => {
     ev.preventDefault();
     try {
-      await dispatch(attemptLogin(credentials));
-      navigate('/');
+      dispatch(attemptLogin(credentials, navigate));
+      // navigate('/');
     } catch(err) {
         setError(err.response.data);
     }
@@ -48,9 +49,9 @@ const Login = () => {
         </div>
         <div className="form-group">
           <label>Password</label>
-          <input type="password" className="form-control" placeholder="Password" value={credentials.password} name='password' onChange={ onChange }/>
+          <input type='password' className="form-control" placeholder="Password" value={credentials.password} name='password' onChange={ onChange }/>
         </div>
-        <button type="submit" className="btn btn-primary">Log in</button>
+        <button type="submit" className="btn btn-primary" onClick={login}>Log in</button>
       </form>
     </div>
   );

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, Routes, Route } from 'react-router-dom';
 import { fetchProducts } from '../store/products';
 import Home from './Home';
@@ -9,6 +9,7 @@ import Login from './Login/Login';
 import { loginWithToken } from '../store';
 
 const App = () => {
+  const { auth } = useSelector((state) => state);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -51,7 +52,6 @@ const App = () => {
         <Route path="/products/:id" element={<Product />} />
         <Route path='/login' element={<Login />} />
       </Routes>
-      {/* <Home /> */}
     </div>
   )
 };
