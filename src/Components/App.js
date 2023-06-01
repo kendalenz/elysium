@@ -5,12 +5,15 @@ import { fetchProducts } from '../store/products';
 import Home from './Home';
 import Products from './Product/Products';
 import Product from './Product/Product';
+import Login from './Login/Login';
+import { loginWithToken } from '../store';
 
 const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchProducts());
+    dispatch(loginWithToken());
   }, []);
 
   return (
@@ -36,13 +39,17 @@ const App = () => {
             <li className='nav-item'>
               <Link className='link-dark mx-4' to='/#'>Cart</Link>
             </li>
+            <li className='nav-item'>
+              <Link className='link-dark mx-4' to='/login'>Log In</Link>
+            </li>
           </ul>
         </div>
       </nav>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/products" element={<Products />}/>
-        <Route path="/products/:id" element={<Product />}/>
+        <Route path="/products" element={<Products />} />
+        <Route path="/products/:id" element={<Product />} />
+        <Route path='/login' element={<Login />} />
       </Routes>
       {/* <Home /> */}
     </div>

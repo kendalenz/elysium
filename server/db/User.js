@@ -1,9 +1,11 @@
-const { UUIDV4, STRING, UUID } = require('sequelize');
+
+require('dotenv').config();
 const conn = require('./conn');
+const { UUIDV4, STRING, UUID } = require('sequelize');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const JWT = process.env.JWT;
-const axios = require('axios');
+// const axios = require('axios');
 
 const User = conn.define('user', {
   id: {
@@ -40,24 +42,6 @@ User.addHook('beforeSave', async(user)=> {
   }
 });
 
-User.prototype.generateToken = function() {
-  return jwt.sign({ id: this.id }, JWT);
-};
-
-User.authenticate = async function({ email, password }) {
-  const user = await this.findOne({
-    where: {
-      email
-    }
-  });
-  if(user && await bcrypt.compare(password, user.password)) {
-    return jwt.sign({ id: user.id }, JWT);
-  }
-  const error = new Error('bad credentials');
-  error.status = 401;
-  throw error;
-};
-
 User.findByToken = async function(token) {
   try {
     const { id } = jwt.verify(token, process.env.JWT);
@@ -72,6 +56,27 @@ User.findByToken = async function(token) {
     error.status = 401;
     throw error;
   }
+};
+
+User.prototype.generateToken = function() {
+  return jwt.sign({ id: this.id }, JWT);
+};
+
+User.authenticate = async function({ email, password }) {
+  console.log('Email:', email)
+  console.log('Password', password)
+
+  const user = await this.findOne({
+    where: {
+      email
+    }
+  });
+  if(user && (await bcrypt.compare(password, user.password))) {
+    return jwt.sign({ id: user.id }, JWT);
+  }
+  const error = new Error('bad credentials');
+  error.status = 401;
+  throw error;
 };
 
 module.exports = User;
