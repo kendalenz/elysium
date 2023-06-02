@@ -4509,6 +4509,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+// import { Link } from 'react-router-dom';
 
 const Login = () => {
   const {
@@ -4550,24 +4551,22 @@ const Login = () => {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "form-group"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", null, "Email address"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
-    type: "email",
     className: "form-control",
     placeholder: "Enter email",
     value: credentials.email,
-    name: "email",
-    onChange: onChange
+    onChange: onChange,
+    name: "email"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("small", {
     id: "emailHelp",
     className: "form-text text-muted"
   }, "We'll never share your email with anyone else.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "form-group"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", null, "Password"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
-    type: "password",
     className: "form-control",
     placeholder: "Password",
     value: credentials.password,
-    name: "password",
-    onChange: onChange
+    onChange: onChange,
+    name: "password"
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
     type: "submit",
     className: "btn btn-primary",

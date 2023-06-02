@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { attemptLogin } from '../../store';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 const Login = () => {
   const { auth } = useSelector((state) => state);
@@ -44,12 +44,12 @@ const Login = () => {
       <form onSubmit={login}>
         <div className="form-group">
           <label>Email address</label>
-          <input type="email" className="form-control" placeholder="Enter email" value={credentials.email} name='email' onChange={ onChange }/>
+          <input className="form-control" placeholder="Enter email" value={credentials.email} onChange={onChange} name='email' />
           <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
         </div>
         <div className="form-group">
           <label>Password</label>
-          <input type='password' className="form-control" placeholder="Password" value={credentials.password} name='password' onChange={ onChange }/>
+          <input className="form-control" placeholder="Password" value={credentials.password} onChange={onChange} name='password' />
         </div>
         <button type="submit" className="btn btn-primary" onClick={login}>Log in</button>
       </form>
