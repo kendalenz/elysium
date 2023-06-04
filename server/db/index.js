@@ -28,10 +28,16 @@ const syncAndSeed = async() => {
       lastName: 'Enz',
       password: '123',
       email: 'kendal.enz@gmail.com'
+    }, 
+    {
+      firstName: 'Gabriel',
+      lastName: 'Zapata',
+      password: '123',
+      email: 'gabriel.zapata@gmail.com'
     }
   ];
 
-  const [kendal] = await Promise.all(
+  const [kendal, gabriel] = await Promise.all(
     userList.map(
       user => User.create(user)
     )

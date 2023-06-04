@@ -40,20 +40,21 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <form onSubmit={login}>
-        <div className="form-group">
-          <label>Email address</label>
-          <input className="form-control" placeholder="Enter email" value={credentials.email} onChange={onChange} name='email' />
-          <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
-        </div>
-        <div className="form-group">
-          <label>Password</label>
-          <input className="form-control" placeholder="Password" value={credentials.password} onChange={onChange} name='password' />
-        </div>
-        <button type="submit" className="btn btn-primary" onClick={login}>Log in</button>
-      </form>
-    </div>
+    <div className="vh-100 d-flex justify-content-center align-items-center">
+    <form onSubmit={login}>
+      <h1>Welcome to Earthen Foods</h1>
+      <hr></hr>
+      <div className="form-group">
+        <label>Email</label>
+        <input className="form-control" value={credentials.email} onChange={onChange} name='email' />
+      </div>
+      <div className="form-group">
+        <label>Password</label>
+        <input className="form-control" value={credentials.password} onChange={onChange} name='password' />
+      </div>
+      <button type="submit" className="btn btn-primary btn-light" onClick={login}>Log in</button>
+    </form>
+  </div>
   );
 };
 
