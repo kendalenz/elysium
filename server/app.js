@@ -21,7 +21,7 @@ app.use('/static', express.static(path.join(__dirname, '../static')));
 app.get('/', (req, res) => res.render(path.join(__dirname, '../static/index.html')));
 
 app.use('/api/auth', require('./api/auth'));
-app.use('/api/fetchdata', require('./api/fetchdata'));
+app.use('/api/fetchData', require('./api/fetchData'));
 app.use('/api/products', require('./api/products'));
 app.use('/api/users', require('./api/users'));
 
