@@ -45,14 +45,14 @@ const Login = () => {
       <h1>Welcome to Earthen Foods</h1>
       <hr></hr>
       <div className="form-group">
-        <label>Email</label>
+        <label className='mt-4'>Email</label>
         <input className="form-control" value={credentials.email} onChange={onChange} name='email' />
       </div>
       <div className="form-group">
-        <label>Password</label>
+        <label className='mt-4'>Password</label>
         <input className="form-control" value={credentials.password} onChange={onChange} name='password' />
       </div>
-      <button type="submit" className="btn btn-primary btn-light" onClick={login}>Log in</button>
+      <button type="submit" className="btn btn-primary btn-light mt-4" onClick={login}>Log in</button>
     </form>
   </div>
   );
