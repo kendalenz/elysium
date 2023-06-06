@@ -40,8 +40,8 @@ const Login = () => {
   };
 
   return (
-    <div className="vh-100 d-flex justify-content-center align-items-center">
-    <form onSubmit={login}>
+    <div className="vh-100 d-flex justify-content-center align-items-center" id='login-page'>
+    <form id='login-form'onSubmit={login}>
       <h1>Welcome to Earthen Foods</h1>
       <hr></hr>
       <div className="form-group">

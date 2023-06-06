@@ -13,6 +13,17 @@
     text-align: center;
   }
 
+  #hero-heading1 {
+    font-size: 6rem;
+  }
+
+  #home-text {
+    margin-left: 10rem;
+    margin-right: 10rem;
+    margin-top: 8rem;
+    margin-bottom: 8rem;
+  }
+
   .card {
     width: 15rem;
     height: 20rem;
@@ -32,11 +43,13 @@
     height: 30rem;
   }
 
-  form {
+  #login-form {
     background-color: #4B6F44;
     padding: 2rem;
     border-radius: 4%;
     color: white;
   }
 
- 
+  #login-page {
+    background: rgba(75, 111, 68, .25);
+  }

@@ -20,7 +20,7 @@ const App = () => {
   return (
     <div>
       <nav className='navbar navbar-expand-sm'>
-        <Link className='navbar-brand link-dark mx-4' to='/'>Earthen Foods</Link>
+        <Link className='navbar-brand link-dark mx-4' to='/'>Elysium</Link>
         <button 
           type='button' 
           data-bs-toggle='collapse' 

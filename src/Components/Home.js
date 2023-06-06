@@ -6,11 +6,14 @@ const Home = () => {
       <section className="bg-image container-fluid d-flex"> 
         <div className="align-items-center container-fluid d-flex justify-content-center">
           <div className='hero-text text-white'>
-            <h1 className='h1'>Earthen Foods</h1>
-            <h2 className='h2'>blah blah blah</h2>
+            <h1 className='h1' id='hero-heading1'>Elysium</h1>
+            <h2 className='h2'>Eat right. Work hard. Feel good.</h2>
           </div> 
         </div>
       </section>
+      <div class="lead" id='home-text'>
+        <strong>Elysium takes great pride in being both a Certified Organic Retailer and a Certified B Corp.</strong> At Elysium, we firmly believe that nourishment is the gateway to a vibrant way of living. By means of our establishments, we strive to offer extraordinary organic goods that foster informed choices and healthier societies.
+      </div>
     </div>
     )
 };
