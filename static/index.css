@@ -43,6 +43,10 @@ body {
     height: 20rem;
   }
 
+  .card-text {
+    padding: .5rem;
+  }
+
   #product-img {
     width: 13rem;
   }
@@ -62,4 +66,10 @@ body {
     padding: 2rem;
     border-radius: 4%;
     color: white;
+  }
+
+  @media only screen and (max-width: 600px) {
+    #h#login-form {
+      margin: .5rem;
+    }
   }
