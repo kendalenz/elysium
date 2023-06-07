@@ -40,16 +40,16 @@ const Login = () => {
   };
 
   return (
-    <div className="vh-100 d-flex justify-content-center align-items-center" id='login-page'>
+    <div className="vh-100 d-flex justify-content-center align-items-center">
     <form id='login-form'onSubmit={login}>
-      <h1>Welcome to Earthen Foods</h1>
+      <h1 className='light-font'>Welcome to Earthen Foods</h1>
       <hr></hr>
       <div className="form-group">
-        <label className='mt-4'>Email</label>
+        <label className='mt-4 light-font'>Email</label>
         <input className="form-control" value={credentials.email} onChange={onChange} name='email' />
       </div>
       <div className="form-group">
-        <label className='mt-4'>Password</label>
+        <label className='mt-4 light-font'>Password</label>
         <input className="form-control" value={credentials.password} onChange={onChange} name='password' />
       </div>
       <button type="submit" className="btn btn-primary btn-light mt-4" onClick={login}>Log in</button>

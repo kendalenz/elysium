@@ -1,4 +1,8 @@
 
+body {
+  background: rgba(75, 111, 68, .05);
+}
+
 .bg-image {
     width:100%;
     height:500px;
@@ -13,15 +17,25 @@
     text-align: center;
   }
 
+  .light-font {
+    font-weight: 175;
+  }
+
   #hero-heading1 {
     font-size: 6rem;
   }
 
   #home-text {
-    margin-left: 10rem;
-    margin-right: 10rem;
-    margin-top: 8rem;
-    margin-bottom: 8rem;
+    padding-left: 10rem;
+    padding-right: 10rem;
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
+
+  @media only screen and (max-width: 600px) {
+    #home-text {
+      padding: 1rem;
+    }
   }
 
   .card {
@@ -48,8 +62,4 @@
     padding: 2rem;
     border-radius: 4%;
     color: white;
-  }
-
-  #login-page {
-    background: rgba(75, 111, 68, .25);
   }

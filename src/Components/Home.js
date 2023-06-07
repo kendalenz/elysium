@@ -6,8 +6,8 @@ const Home = () => {
       <section className="bg-image container-fluid d-flex"> 
         <div className="align-items-center container-fluid d-flex justify-content-center">
           <div className='hero-text text-white'>
-            <h1 className='h1' id='hero-heading1'>Elysium</h1>
-            <h2 className='h2'>Eat right. Work hard. Feel good.</h2>
+            <h1 className='h1 light-font' id='hero-heading1'>Elysium</h1>
+            <h2 className='h2 light-font'>Eat right. Work hard. Feel good.</h2>
           </div> 
         </div>
       </section>
