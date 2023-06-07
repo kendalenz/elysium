@@ -8,6 +8,7 @@ import Product from './Product/Product';
 import Login from './Login/Login';
 import User from './User/User';
 import { loginWithToken } from '../store';
+import { logout } from '../store';
 
 const App = () => {
   const { auth } = useSelector((state) => state);
@@ -46,9 +47,9 @@ const App = () => {
                 <li className='nav-item'>
                   <Link className='link-dark mx-4' to={`/user/${auth.id}`}>Account</Link>
                 </li>
-                {/* <li className='nav-item'>
-                  <Link className='link-dark mx-4' to='/logout'>Log Out</Link>
-                </li> */}
+                <li className='nav-item'>
+                  <Link className='link-dark mx-4' to='#' onClick={() => dispatch(logout())}>Log Out</Link>
+                </li>
               </ul>
             </div>
           </nav>
@@ -57,7 +58,6 @@ const App = () => {
             <Route path="/products" element={<Products />} />
             <Route path="/products/:id" element={<Product />} />
             <Route path="/user/:id" element={<User />} />
-            {/* <Route path='/logout' element={<Logout />} /> */}
           </Routes>
         </div>
       ) : (
