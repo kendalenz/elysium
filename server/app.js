@@ -24,5 +24,6 @@ app.use('/api/auth', require('./api/auth'));
 app.use('/api/fetchData', require('./api/fetchData'));
 app.use('/api/products', require('./api/products'));
 app.use('/api/users', require('./api/users'));
+app.use('/api/orders', require('./api/orders'));
 
 module.exports = app;

@@ -1,8 +1,20 @@
 const conn = require('./conn');
 const Product = require('./Product');
 const User = require('./User');
+const LineItem = require('./LineItem');
+const Order = require('./Order');
+const Checkout = require('./Checkout');
 const fs = require('fs');
 const path = require('path');
+
+User.hasMany(Order, { hooks: true, onDelete: 'CASCADE' });
+Order.belongsTo(User);
+LineItem.belongsTo(Order);
+Order.hasMany(LineItem, { hooks: true, onDelete: 'CASCADE' });
+LineItem.belongsTo(Product);
+Product.hasMany(LineItem, { hooks: true, onDelete: 'CASCADE' });
+Checkout.belongsTo(Order);
+Order.hasOne(Checkout);
 
 const getPhoto = (path) => {
   return new Promise((resolve, reject) => {
@@ -70,5 +82,6 @@ const syncAndSeed = async() => {
 module.exports = {
     syncAndSeed,
     User,
-    Product
+    Product,
+    Checkout
 };

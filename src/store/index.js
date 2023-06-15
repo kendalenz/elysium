@@ -3,6 +3,8 @@ import thunk from "redux-thunk";
 import logger from "redux-logger";
 import auth from './auth';
 import products from "./products";
+import cart from './cart';
+
 // import users from './users';
 
 export const getToken = () => {
@@ -16,6 +18,7 @@ export const setToken = (data) => {
 const reducer = combineReducers({
   auth,
   products, 
+  cart
   // users
 });
 
@@ -25,4 +28,5 @@ export default store;
 
 export * from './auth';
 export * from './products';
+export * from './cart';
 // export * from './users';
