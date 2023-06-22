@@ -7,8 +7,16 @@ import Products from './Product/Products';
 import Product from './Product/Product';
 import Login from './Login/Login';
 import User from './User/User';
+import Cart from './Cart/Cart';
+import Orders from './Cart/Orders';
+import OrderSuccess from './Cart/OrderSuccess';
+
 import { loginWithToken } from '../store';
 import { logout } from '../store';
+import { fetchCart } from '../store';
+import OrderCancelled from './Cart/OrderCancelled';
+
+import { CartElement } from '@stripe/react-stripe-js';
 
 const App = () => {
   const { auth } = useSelector((state) => state);
@@ -18,6 +26,13 @@ const App = () => {
     dispatch(fetchProducts());
     dispatch(loginWithToken());
   }, []);
+
+  useEffect(() => {
+    if (auth.id) {
+      dispatch(fetchCart());
+    }
+  }, [auth]);
+
 
   return (
     <div>
@@ -42,7 +57,10 @@ const App = () => {
                   <Link className='link-dark mx-4' to='/products'>Shop</Link>
                 </li>
                 <li className='nav-item'>
-                  <Link className='link-dark mx-4' to='/#'>Cart</Link>
+                  <Link className='link-dark mx-4' to='/cart'>Cart</Link>
+                </li>
+                <li className='nav-item'>
+                  <Link className='link-dark mx-4' to='/orders'>Orders</Link>
                 </li>
                 <li className='nav-item'>
                   <Link className='link-dark mx-4' to={`/user/${auth.id}`}>Account</Link>
@@ -57,6 +75,10 @@ const App = () => {
             <Route path="/" element={<Home />} />
             <Route path="/products" element={<Products />} />
             <Route path="/products/:id" element={<Product />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/orders" element={<Orders />} />
+            <Route path="/order-success" element={<OrderSuccess />} />
+            <Route path='/order-cancelled' element={<OrderCancelled />} />
             <Route path="/user/:id" element={<User />} />
           </Routes>
         </div>
