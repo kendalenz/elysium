@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
+import AddToCart from '../Cart/AddToCart';
 
 const Product = () => {
   const { products } = useSelector((state) => state);
@@ -17,7 +18,12 @@ const Product = () => {
         <img src={product.photo} id='productPhoto'></img>
         </div>
         <div className='col-sm'>
-        {product.name}
+        <strong>{product.name}</strong>
+        <br/>
+        ${product.price}
+        <div className='mt-4'>
+          <AddToCart />
+        </div>
         </div>
       </div>
     </div>

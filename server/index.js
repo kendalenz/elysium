@@ -1,5 +1,5 @@
 try {
-  require('../.secrets');
+  require('../secrets.js');
 } catch(err) {
   console.log(err);
   console.log(

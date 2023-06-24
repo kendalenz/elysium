@@ -44,7 +44,7 @@ const Orders = () => {
       <div>
         {cart.lineItems.length > 0 && cart.isCart ? (
           cart.lineItems.map((item) => {
-            const book = products.find((p) => p.id === item.productId);
+            const product = products.find((p) => p.id === item.productId);
             const copyText = item.quantity > 1 ? 'copies' : 'copy';
             return (
               <div key={product.id}>

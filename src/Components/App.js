@@ -102,9 +102,9 @@ const App = () => {
                 <li className='nav-item'>
                   <Link className='link-dark mx-4' to='/products'>Shop</Link>
                 </li>
-                <li className='nav-item'>
+                {/* <li className='nav-item'>
                   <Link className='link-dark mx-4' to='/#'>Cart</Link>
-                </li>
+                </li> */}
                 <li className='nav-item'>
                   <Link className='link-dark mx-4' to='/login'>Log In</Link>
                 </li>
