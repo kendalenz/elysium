@@ -7,7 +7,7 @@ const User = () => {
   const { id } = useParams();;
 
   return (
-    <div>
+    <div className='mx-4'>
       <hr></hr>
         {auth.firstName}
     </div>

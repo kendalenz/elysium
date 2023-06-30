@@ -28,12 +28,15 @@ const AddToCart = () => {
   return (
     <div>
       <form onSubmit={addItem}>
-        <input
-          placeholder="How many?"
-          value={quantity}
-          onChange={(e) => setQuantity(Number(e.target.value))}
-        ></input>
-        <button>Add to Cart</button>
+        <div className='form-group'>
+          <input
+            placeholder="How many?"
+            className='form-control'
+            value={quantity}
+            onChange={(e) => setQuantity(Number(e.target.value))}
+          ></input>
+        </div>
+        <button className='btn btn-dark mt-4'>Add to Cart</button>
       </form>
     </div>
   );

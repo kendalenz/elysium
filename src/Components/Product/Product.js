@@ -12,7 +12,7 @@ const Product = () => {
   if(!product) return <h4>...loading</h4>
 
   return (
-    <div className='container'>
+    <div className='container mt-4'>
       <div className='row'>
         <div className='col-sm'>
         <img src={product.photo} id='productPhoto'></img>

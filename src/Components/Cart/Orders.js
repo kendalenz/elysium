@@ -39,13 +39,13 @@ const Orders = () => {
   }, [cart]);
 
   return (
-    <div id="checkout_page">
+    <div className='mx-4'>
       <h1>Checkout</h1>
       <div>
         {cart.lineItems.length > 0 && cart.isCart ? (
           cart.lineItems.map((item) => {
             const product = products.find((p) => p.id === item.productId);
-            const copyText = item.quantity > 1 ? 'copies' : 'copy';
+            const copyText = item.quantity > 1 ? 'items' : 'item';
             return (
               <div key={product.id}>
                 <div id="checkout_info">
@@ -89,7 +89,7 @@ const Orders = () => {
           {!cart.isCart
             ? cart.lineItems.map((item) => {
                 const product = products.find((p) => p.id === item.productId);
-                const copyText = item.quantity > 1 ? 'copies' : 'copy';
+                const copyText = item.quantity > 1 ? 'itmes' : 'item';
                 return (
                   <div key={item.id}>
                     {product.name} - {item.quantity} {copyText} ordered on{' '}

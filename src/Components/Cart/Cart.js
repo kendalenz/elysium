@@ -6,8 +6,42 @@ import UpdateItemQuantity from './UpdateItemQuantity';
 const Cart = () => {
   const { cart, products } = useSelector((state) => state);
 
+  const Card = (props) => {
+    const { lineItem, quantity } = props; 
+    return (
+      <div className="card mb-2" id='cartCard'>
+        <div className='row no-gutters align-items-center'>
+          <div className='col-md-4'>
+            <a href={`#/products/${props.id}`}>
+              <img
+              src={props.photo}
+              className="card-img"
+              />
+            </a>
+          </div>
+          <div className='col-md-8'>
+            <div className='card-body'>
+             <h5 className='card-title'>{props.name}</h5>
+              <br/>
+              ${props.price} each
+              <br/>
+              Itemized subtotal: {lineItem.quantity} x ${props.price} = ${lineItem.quantity * props.price}
+              <br/>
+              <UpdateItemQuantity
+                key={lineItem.id}
+                id={lineItem.id}
+                quantity={lineItem.quantity}
+                productId={props.id}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  };
+
   return (
-    <div id='cart_page'>
+    <div className='mx-4'>
       <h1>Cart</h1>
       <div>
         <div>
@@ -16,20 +50,17 @@ const Cart = () => {
               const product = products.find((product) => product.id === lineItem.productId);
               return (
                 <div key={product.id}>
-                  <img></img>
-                  <pre>
-                    {product.name} 
-                    <br/> 
-                    ${product.price}
-                    <br/>
-                    (You have {lineItem.quantity} in your cart)
-                  </pre>
-                  <UpdateItemQuantity
-                    key={lineItem.id}
-                    id={lineItem.id}
-                    quantity={lineItem.quantity}
-                    productId={product.id}
-                  />
+                  <div>
+                    <Card
+                      id={product.id}
+                      key={product.id}
+                      photo={product.photo}
+                      name={product.name}
+                      price={product.price}
+                      lineItem={lineItem}
+                      quantity={lineItem.quantity}
+                    />
+                  </div>
                 </div>
               );
             })
