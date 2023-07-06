@@ -11,22 +11,22 @@ const Cart = () => {
     return (
       <div className="card mb-2" id='cartCard'>
         <div className='row no-gutters align-items-center'>
-          <div className='col-md-4'>
+          <div className='col-md-4 ml-2'>
             <a href={`#/products/${props.id}`}>
-              <img
-              src={props.photo}
-              className="card-img"
-              />
+                <img
+                  src={props.photo}
+                  className="card-img ml-2"
+                />
             </a>
           </div>
           <div className='col-md-8'>
             <div className='card-body'>
-             <h5 className='card-title'>{props.name}</h5>
-              <br/>
-              ${props.price} each
-              <br/>
-              Itemized subtotal: {lineItem.quantity} x ${props.price} = ${lineItem.quantity * props.price}
-              <br/>
+              <div className='mb-4'>
+               <h5 className='card-title'>{props.name}</h5>
+                ${props.price} each
+                <br/>
+                Itemized subtotal: {lineItem.quantity} x ${props.price} = ${lineItem.quantity * props.price}
+              </div>
               <UpdateItemQuantity
                 key={lineItem.id}
                 id={lineItem.id}

@@ -32,15 +32,18 @@ const UpdateItemQuantity = (props) => {
   return (
     <div>
       <form onSubmit={updateQuantity}>
+        <div className='form-group'>
         <label htmlFor="quantity">Update Quantity</label>
         <input
+          className='form-control'
           type="number"
           name="quantity"
           id="quantity"
           value={quantity}
           onChange={(e) => setQuantity(Number(e.target.value))}
         />
-        <button>Update Cart</button>
+        <button className='btn btn-dark mt-2'>Update Cart</button>
+        </div>
       </form>
     </div>
   );

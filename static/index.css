@@ -39,18 +39,22 @@ body {
   }
 
   #cartCard {
-    /* flex-direction: row;  */
     width: 100%;
-    /* height: 25rem; */
   }
 
   #cartCard img {
     width: 13rem;
+    padding: 1rem;
   }
+
+  /* @media only screen and (max-width: 600px) {
+    #cartCard img {
+      padding: 1rem;
+    }
+  } */
 
   .card {
     width: 15rem;
-    /* height: 20rem; */
   }
 
   .card-text {

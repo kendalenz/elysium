@@ -16,8 +16,15 @@ const Login = () => {
 
   const [error, setError] = useState({});
 
+  // const onChange = (ev) => {
+  //   setCredentials({ ...credentials, [ev.target.name]: ev.target.value });
+  // };
+
   const onChange = (ev) => {
-    setCredentials({ ...credentials, [ev.target.name]: ev.target.value });
+    setCredentials((prevCredentials) => ({
+      ...prevCredentials,
+      [ev.target.name]: ev.target.value,
+    }));
   };
 
   const login = (ev) => {
