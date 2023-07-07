@@ -11,7 +11,7 @@ const Home = () => {
           </div> 
         </div>
       </section>
-      <div class="lead" id='home-text'>
+      <div className="lead" id='home-text'>
         <strong>Elysium takes great pride in being both a Certified Organic Retailer and a Certified B Corp.</strong> At Elysium, we firmly believe that nourishment is the gateway to a vibrant way of living. By means of our establishments, we strive to offer extraordinary organic goods that foster informed choices and healthier societies.
       </div>
     </div>

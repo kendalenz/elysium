@@ -7,7 +7,7 @@
     "build": "webpack",
     "build:dev": "npm run build -- --watch --mode=development",
     "test": "JWT=shhhhh mocha",
-    "test:dev": "npm run test -- --watch",
+    "test:dev": "DATABASE_URL=postgres://localhost/earthen_foods run test -- --watch",
     "start:dev": "JWT=thisisamess nodemon server/index.js --ignore src/ --ignore dist/ & npm run build:dev",
     "start": "node server/index.js"
   },
@@ -27,6 +27,7 @@
     "@stripe/stripe-js": "^1.54.1",
     "bcrypt": "^5.0.1",
     "bootstrap": "^5.2.3",
+    "cookie-session": "^2.0.0",
     "cors": "^2.8.5",
     "dayjs": "^1.11.8",
     "dotenv": "^16.1.3",

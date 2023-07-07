@@ -27,7 +27,6 @@ const Products = () => {
     {
       products.map((product) => {
         return (
-          <div>
             <Card
               id={product.id}
               key={product.id}
@@ -35,7 +34,6 @@ const Products = () => {
               name={product.name}
               price={product.price}
             />
-           </div>
         );
       })
     }
