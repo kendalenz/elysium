@@ -3,7 +3,8 @@ const conn = require('./conn');
 const { UUIDV4, STRING, UUID } = conn.Sequelize;
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const JWT = process.env.JWT;
+// const JWT = process.env.JWT;
+const JWT_SECRET = process.env.JWT;
 
 const User = conn.define('user', {
   id: {
@@ -42,8 +43,12 @@ User.addHook('beforeSave', async(user)=> {
 });
 
 //generateToken for user
+// User.prototype.generateToken = function(){
+//   return jwt.sign({ id: this.id }, JWT);
+// };
+
 User.prototype.generateToken = function(){
-  return jwt.sign({ id: this.id }, JWT);
+  return jwt.sign({ id: this.id }, JWT_SECRET);
 };
 
 //find user and return token
@@ -54,7 +59,7 @@ User.authenticate = async function({ email, password }){
     }
   });
   if(user && await bcrypt.compare(password, user.password)){
-    return jwt.sign({ id: user.id }, JWT);
+    return jwt.sign({ id: user.id }, JWT_SECRET);
   }
   const error = new Error('bad credentials');
   error.status = 401;
@@ -62,9 +67,25 @@ User.authenticate = async function({ email, password }){
 }
 
 //find out the user by token
+// User.findByToken = async function(token){
+//   try {
+//     const { id } = jwt.verify(token, process.env.JWT);
+//     const user = await this.findByPk(id);
+//     if(user){
+//       return user;
+//     }
+//     throw 'user not found';
+//   }
+//   catch(ex){
+//     const error = new Error('bad credentials');
+//     error.status = 401;
+//     throw error;
+//   }
+// };
+
 User.findByToken = async function(token){
   try {
-    const { id } = jwt.verify(token, process.env.JWT);
+    const { id } = jwt.verify(token, JWT_SECRET);
     const user = await this.findByPk(id);
     if(user){
       return user;
