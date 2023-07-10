@@ -65,6 +65,10 @@ body {
     color: black;
   }
 
+  a:hover {
+    text-decoration: underline;
+  }
+
   #productPhoto {
     width: 95%;
     /* height: 80% */
@@ -81,4 +85,10 @@ body {
     #h#login-form {
       margin: .5rem;
     }
+  }
+
+  #checkout_btn {
+    width: 30%;
+    height: 3rem;
+    font-size: 1.5rem;
   }

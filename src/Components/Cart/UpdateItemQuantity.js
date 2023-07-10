@@ -42,7 +42,7 @@ const UpdateItemQuantity = (props) => {
           value={quantity}
           onChange={(e) => setQuantity(Number(e.target.value))}
         />
-        <button className='btn btn-dark mt-2'>Update Cart</button>
+        <button className='btn btn-secondary mt-2'>Update Cart</button>
         </div>
       </form>
     </div>

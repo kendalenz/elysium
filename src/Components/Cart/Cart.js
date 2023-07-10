@@ -9,13 +9,13 @@ const Cart = () => {
   const Card = (props) => {
     const { lineItem, quantity } = props; 
     return (
-      <div className="card mb-2" id='cartCard'>
+      <div className='card mb-2' id='cartCard'>
         <div className='row no-gutters align-items-center'>
           <div className='col-md-4 ml-2'>
             <a href={`#/products/${props.id}`}>
                 <img
                   src={props.photo}
-                  className="card-img ml-2"
+                  className='card-img ml-2'
                 />
             </a>
           </div>
@@ -41,8 +41,19 @@ const Cart = () => {
   };
 
   return (
-    <div className='mx-4'>
-      <h1>Cart</h1>
+    <div className='mx-4 mt-4'>
+      <div className='containter'>
+        <div className='row'>
+          <div className='col'>
+            <h1>Your Cart</h1>
+          </div>
+          <div className='col d-flex justify-content-end'>
+            <Link to='/products' className='h-100 d-flex align-items-center'>
+              Continue Shopping
+            </Link>          
+          </div>
+        </div>
+      </div>
       <div>
         <div>
           {cart.lineItems.length > 0 ? (
@@ -68,17 +79,13 @@ const Cart = () => {
             <p>Your cart is empty.</p>
           )}
         </div>
-        <div id="cart-actions">
-          <div>
-            <Link to="/products">
-              <button className="buy_btn">Buy More</button>
-            </Link>
-          </div>
+        <div id='cart-actions'>
           <br />
           <div>
-            <Link to="/orders">
+            <Link to='/orders'>
               <button
-                className="checkout_btn"
+                className='btn btn-dark'
+                id='checkout_btn'
                 disabled={cart.lineItems.length === 0}
               >
                 Checkout
