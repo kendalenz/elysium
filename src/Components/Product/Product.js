@@ -14,8 +14,8 @@ const Product = () => {
   return (
     <div className='container mt-4'>
       <div className='row'>
-        <div className='col-sm'>
-        <img src={product.photo} id='productPhoto'></img>
+        <div className='col-sm d-flex justify-content-center'>
+        <img src={product.photo} className='img-fluid' id='productPhoto'></img>
         </div>
         <div className='col-sm'>
         <strong>{product.name}</strong>

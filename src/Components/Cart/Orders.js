@@ -48,15 +48,15 @@ const Orders = () => {
             const copyText = item.quantity > 1 ? 'items' : 'item';
             return (
               <div key={product.id}>
-                <div id="checkout_info">
-                  <div id="checkout_text">
+                <div>
+                  <div>
                     {product.name}  ({item.quantity} {copyText} @
                     ${product.price} each)
                     <br></br>
                     <br></br>
                     <br></br>
-                    <div id="checkout_buttons">
-                      <div id="edit_quantity_button">
+                    <div>
+                      <div>
                         <button onClick={() => navigate('/cart')}>
                           Edit Quantity
                         </button>
@@ -71,7 +71,7 @@ const Orders = () => {
             );
           })
         ) : (
-          <Link to="/products">
+          <Link to='/products'>
             <p>Your cart is empty — Click here to shop.</p>
           </Link>
         )}
@@ -83,7 +83,7 @@ const Orders = () => {
           <CheckoutForm />
         </Elements>
       )}
-      <div id='past_orders_div'>
+      <div>
         <h2>Past Orders</h2>
         <div>
           {!cart.isCart

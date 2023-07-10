@@ -33,16 +33,30 @@ const UpdateItemQuantity = (props) => {
     <div>
       <form onSubmit={updateQuantity}>
         <div className='form-group'>
-        <label htmlFor="quantity">Update Quantity</label>
-        <input
-          className='form-control'
-          type="number"
-          name="quantity"
-          id="quantity"
-          value={quantity}
-          onChange={(e) => setQuantity(Number(e.target.value))}
-        />
-        <button className='btn btn-secondary mt-2'>Update Cart</button>
+          <div className='row'>
+            <label htmlFor='quantity' className='col-sm-12'>
+              Update Quantity
+            </label>
+          </div>
+          <div className='row'>
+            <div className='col-sm-12'>
+              <input
+                className='form-control-sm'
+                type='number'
+                name='quantity'
+                id='quantity'
+                value={quantity}
+                onChange={(e) => setQuantity(Number(e.target.value))}
+              />
+            </div>
+          </div>
+          <div className='row'>
+            <div className='col-sm-12'>
+              <button className='btn btn-secondary mt-2'>
+                Update Cart
+              </button>
+            </div>
+          </div>
         </div>
       </form>
     </div>

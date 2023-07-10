@@ -71,7 +71,6 @@ body {
 
   #productPhoto {
     width: 95%;
-    /* height: 80% */
   }
 
   #login-form {
@@ -89,6 +88,6 @@ body {
 
   #checkout_btn {
     width: 30%;
-    height: 3rem;
+    padding: .5rem;
     font-size: 1.5rem;
   }

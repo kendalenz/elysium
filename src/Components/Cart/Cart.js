@@ -41,7 +41,7 @@ const Cart = () => {
   };
 
   return (
-    <div className='mx-4 mt-4'>
+    <div className='mx-4 my-4'>
       <div className='containter'>
         <div className='row'>
           <div className='col'>

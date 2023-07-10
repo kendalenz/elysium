@@ -50,94 +50,115 @@ const CheckoutDetails = () => {
   };
 
   return (
-    <form className="checkout_form" onSubmit={checkout}>
-      <h3>Shipping Address</h3>
-      <input
-        className="address_form"
-        name="shippingAddressStreet1"
-        placeholder="Street"
-        required
-        value={addressDetails.shippingAddressStreet1}
-        onChange={onChange}
-      />
-      <input
-        className="address_form"
-        name="shippingAddressStreet2"
-        placeholder="Unit/Apt/Floor (optional)"
-        value={addressDetails.shippingAddressStreet2}
-        onChange={onChange}
-      />
-      <input
-        className="address_form"
-        name="shippingAddressCity"
-        placeholder="City"
-        required
-        value={addressDetails.shippingAddressCity}
-        onChange={onChange}
-      />
-      <input
-        className="address_form"
-        name="shippingAddressState"
-        placeholder="State"
-        required
-        value={addressDetails.shippingAddressState}
-        onChange={onChange}
-      />
-      <input
-        className="address_form"
-        name="shippingAddressZip"
-        placeholder="Zip Code"
-        required
-        value={addressDetails.shippingAddressZip}
-        onChange={onChange}
-      />
-      <h3>Billing Address</h3>
-      <div>
-        <label htmlFor="same-as-shipping">Same as Shipping Address?</label>
-        <input
-          type="checkbox"
-          id="same-as-shipping"
-          name="same-as-shipping"
-          value={addressDetails.billingSameAsShipping}
-          onChange={setBillingSameAsShipping}
-        />
+    <form onSubmit={checkout}>
+      <div className='container'>
+        <h3>Shipping Address</h3>
+        <div className='form-group'>
+          <input
+            className='form-control mb-2'
+            name='shippingAddressStreet1'
+            placeholder='Street'
+            required
+            value={addressDetails.shippingAddressStreet1}
+            onChange={onChange}
+          />
+        </div>
+        <div className='form-group mb-2'>
+          <input
+            className='form-control'
+            name='shippingAddressStreet2'
+            placeholder='Unit/Apt/Floor (optional)'
+            value={addressDetails.shippingAddressStreet2}
+            onChange={onChange}
+          />
+        </div>
+        <div className='form-group mb-2'>
+          <input
+            className='form-control'
+            name='shippingAddressCity'
+            placeholder='City'
+            required
+            value={addressDetails.shippingAddressCity}
+            onChange={onChange}
+          />
+        </div>
+        <div className='form-group mb-2'>
+          <input
+            className='form-control'
+            name='shippingAddressState'
+            placeholder='State'
+            required
+            value={addressDetails.shippingAddressState}
+            onChange={onChange}
+          />
+        </div>
+        <div className='form-group mb-4'>
+          <input
+            className='form-control'
+            name='shippingAddressZip'
+            placeholder='Zip Code'
+            required
+            value={addressDetails.shippingAddressZip}
+            onChange={onChange}
+          />
+        </div>
+        <h3>Billing Address</h3>
+        <div className='form-group mb-2'>
+          <label htmlFor='same-as-shipping'>Same as Shipping Address?</label>
+          <input
+            type='checkbox'
+            name='same-as-shipping'
+            value={addressDetails.billingSameAsShipping}
+            onChange={setBillingSameAsShipping}
+          />
+        </div>
+        <div className='form-group mb-2'>
+          <input
+            className='form-control'
+            name='billingAddressStreet1'
+            placeholder='Street'
+            value={addressDetails.billingAddressStreet1}
+            onChange={onChange}
+          />
+        </div>
+        <div className='form-group mb-2'>
+          <input
+            className='form-control'
+            name='billingAddressStreet2'
+            placeholder='Unit/Apt/Floor (optional)'
+            value={addressDetails.billingAddressStreet2}
+            onChange={onChange}
+          />
+        </div>
+        <div className='form-group mb-2'>
+          <input
+            className='form-control'
+            name='billingAddressCity'
+            placeholder='City'
+            value={addressDetails.billingAddressCity}
+            onChange={onChange}
+          />
+        </div>
+        <div className='form-group mb-2'>
+          <input
+            className='form-control'
+            name='billingAddressState'
+            placeholder='State'
+            value={addressDetails.billingAddressState}
+            onChange={onChange}
+          />
+        </div>
+        <div className='form-group mb-4'>
+          <input
+            className='form-control'
+            name='billingAddressZip'
+            placeholder='Zip Code'
+            value={addressDetails.billingAddressZip}
+            onChange={onChange}
+          />
+        </div>
       </div>
-      <input
-        className="address_form"
-        name="billingAddressStreet1"
-        placeholder="Street"
-        value={addressDetails.billingAddressStreet1}
-        onChange={onChange}
-      />
-      <input
-        className="address_form"
-        name="billingAddressStreet2"
-        placeholder="Unit/Apt/Floor (optional)"
-        value={addressDetails.billingAddressStreet2}
-        onChange={onChange}
-      />
-      <input
-        className="address_form"
-        name="billingAddressCity"
-        placeholder="City"
-        value={addressDetails.billingAddressCity}
-        onChange={onChange}
-      />
-      <input
-        className="address_form"
-        name="billingAddressState"
-        placeholder="Street"
-        value={addressDetails.billingAddressState}
-        onChange={onChange}
-      />
-      <input
-        className="address_form"
-        name="billingAddressZip"
-        placeholder="Street"
-        value={addressDetails.billingAddressZip}
-        onChange={onChange}
-      />
-      <button className="checkout_btn">Checkout</button>
+      <button className='btn btn-dark'>Checkout</button>
     </form>
   );
 };

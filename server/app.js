@@ -37,9 +37,9 @@ app.post('/create-checkout-session', async (req, res) => {
         price_data: {
           currency: 'usd',
           product_data: {
-            name: `${item.book.title} by ${item.book.author}`,
+            name: `${item.product.name}`,
           },
-            unit_amount_decimal: parseInt((item.book.price * 100).toFixed(2)),
+            unit_amount_decimal: parseInt((item.product.price * 100).toFixed(2)),
         },
         quantity: item.quantity,
       };
