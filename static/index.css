@@ -91,3 +91,9 @@ body {
     padding: .5rem;
     font-size: 1.5rem;
   }
+
+  @media only screen and (max-width: 600px) {
+    #checkout_btn {
+      font-size: 1rem;
+    }
+  }

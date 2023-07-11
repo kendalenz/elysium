@@ -39,7 +39,7 @@ const Orders = () => {
   }, [cart]);
 
   return (
-    <div className='mx-4'>
+    <div className='mx-4 my-4'>
       <h1>Checkout</h1>
       <div>
         {cart.lineItems.length > 0 && cart.isCart ? (
@@ -48,23 +48,14 @@ const Orders = () => {
             const copyText = item.quantity > 1 ? 'items' : 'item';
             return (
               <div key={product.id}>
-                <div>
-                  <div>
-                    {product.name}  ({item.quantity} {copyText} @
-                    ${product.price} each)
-                    <br></br>
-                    <br></br>
-                    <br></br>
-                    <div>
-                      <div>
-                        <button onClick={() => navigate('/cart')}>
-                          Edit Quantity
-                        </button>
-                      </div>
-                      <button onClick={() => deleteProduct(product, item.quantity)}>
-                        Remove
-                      </button>
-                    </div>
+                <div className='row'>
+                  <div className='col'>
+                  <button className='btn btn-light me-2' onClick={() => deleteProduct(product, item.quantity)}>
+                      X
+                  </button>  
+                  <Link to='/cart'>
+                  {product.name} ({item.quantity} {copyText} @ ${product.price} each)
+                  </Link>
                   </div>
                 </div>
               </div>
@@ -72,7 +63,7 @@ const Orders = () => {
           })
         ) : (
           <Link to='/products'>
-            <p>Your cart is empty — Click here to shop.</p>
+            <p>Your cart is empty. Click here to shop.</p>
           </Link>
         )}
         <br></br>
@@ -83,7 +74,7 @@ const Orders = () => {
           <CheckoutForm />
         </Elements>
       )}
-      <div>
+      {/* <div>
         <h2>Past Orders</h2>
         <div>
           {!cart.isCart
@@ -99,7 +90,7 @@ const Orders = () => {
               })
             : 'You have no past orders.'}
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

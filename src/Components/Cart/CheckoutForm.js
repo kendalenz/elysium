@@ -51,7 +51,7 @@ const CheckoutDetails = () => {
 
   return (
     <form onSubmit={checkout}>
-      <div className='container'>
+      <div className='my-4'>
         <h3>Shipping Address</h3>
         <div className='form-group'>
           <input
@@ -104,13 +104,19 @@ const CheckoutDetails = () => {
         </div>
         <h3>Billing Address</h3>
         <div className='form-group mb-2'>
-          <label htmlFor='same-as-shipping'>Same as Shipping Address?</label>
-          <input
-            type='checkbox'
-            name='same-as-shipping'
-            value={addressDetails.billingSameAsShipping}
-            onChange={setBillingSameAsShipping}
-          />
+          <div className='form-check'>
+            <input
+              className='form-check-input'
+              type='checkbox'
+              name='same-as-shipping'
+              value={addressDetails.billingSameAsShipping}
+              onChange={setBillingSameAsShipping}
+              id='same-as-shipping'
+            />
+            <label className='form-check-label' htmlFor='same-as-shipping'>
+              Same as Shipping Address?
+            </label>
+          </div>
         </div>
         <div className='form-group mb-2'>
           <input

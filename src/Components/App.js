@@ -59,9 +59,9 @@ const App = () => {
                 <li className='nav-item'>
                   <Link className='link-dark mx-4' to='/cart'>Cart</Link>
                 </li>
-                <li className='nav-item'>
+                {/* <li className='nav-item'>
                   <Link className='link-dark mx-4' to='/orders'>Orders</Link>
-                </li>
+                </li> */}
                 <li className='nav-item'>
                   <Link className='link-dark mx-4' to={`/user/${auth.id}`}>Account</Link>
                 </li>
