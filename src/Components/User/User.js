@@ -17,7 +17,7 @@ const User = () => {
           {!cart.isCart
             ? cart.lineItems.map((item) => {
                 const product = products.find((p) => p.id === item.productId);
-                const copyText = item.quantity > 1 ? 'itmes' : 'item';
+                const copyText = item.quantity > 1 ? 'items' : 'item';
                 return (
                   <div key={item.id}>
                     {product.name} - {item.quantity} {copyText} ordered on{' '}

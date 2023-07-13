@@ -15,6 +15,14 @@ const Checkout = conn.define('checkout', {
     type: UUID,
     allowNull: false,
   },
+  shippingFirstName: {
+    type: STRING,
+    allowNull: false,
+  },
+  shippingLastName: {
+    type: STRING,
+    allowNull: false,
+  },
   shippingAddressStreet1: {
     type: STRING,
     allowNull: false,
@@ -36,6 +44,14 @@ const Checkout = conn.define('checkout', {
   },
   billingSameAsShipping: {
     type: BOOLEAN,
+  },
+  billingFirstName: {
+    type: STRING,
+    allowNull: false,
+  },
+  billingLastName: {
+    type: STRING,
+    allowNull: false,
   },
   billingAddressStreet1: {
     type: STRING,

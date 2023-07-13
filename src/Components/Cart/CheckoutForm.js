@@ -3,14 +3,71 @@ import { useSelector } from 'react-redux';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
+const states = [
+  'Alabama',
+  'Alaska',
+  'Arizona',
+  'Arkansas',
+  'California',
+  'Colorado',
+  'Connecticut',
+  'Delaware',
+  'Florida',
+  'Georgia',
+  'Hawaii',
+  'Idaho',
+  'Illinois',
+  'Indiana',
+  'Iowa',
+  'Kansas',
+  'Kentucky',
+  'Louisiana',
+  'Maine',
+  'Maryland',
+  'Massachusetts',
+  'Michigan',
+  'Minnesota',
+  'Mississippi',
+  'Missouri',
+  'Montana',
+  'Nebraska',
+  'Nevada',
+  'New Hampshire',
+  'New Jersey',
+  'New Mexico',
+  'New York',
+  'North Carolina',
+  'North Dakota',
+  'Ohio',
+  'Oklahoma',
+  'Oregon',
+  'Pennsylvania',
+  'Rhode Island',
+  'South Carolina',
+  'South Dakota',
+  'Tennessee',
+  'Texas',
+  'Utah',
+  'Vermont',
+  'Virginia',
+  'Washington',
+  'West Virginia',
+  'Wisconsin',
+  'Wyoming',
+];
+
 const CheckoutDetails = () => {
   const { cart } = useSelector((state) => state);
   const [addressDetails, setAddressDetails] = useState({
+    shippingFirstName: '',
+    shippingLastName: '',
     shippingAddressStreet1: '',
     shippingAddressStreet2: '',
     shippingAddressCity: '',
     shippingAddressState: '',
     shippingAddressZip: '',
+    billingFirstName: '',
+    billingLastName: '',
     billingSameAsShipping: false,
     billingAddressStreet1: '',
     billingAddressStreet2: '',
@@ -31,6 +88,8 @@ const CheckoutDetails = () => {
     setAddressDetails({
       ...addressDetails,
       billingSameAsShipping: !currentSetting,
+      billingFirstName: currentSetting ? '' : addressDetails.shippingFirstName,
+      billingLastName: currentSetting ? '' : addressDetails.shippingLastName,
       billingAddressStreet1: currentSetting ? '' : addressDetails.shippingAddressStreet1,
       billingAddressStreet2: currentSetting ? '' : addressDetails.shippingAddressStreet2,
       billingAddressCity: currentSetting ? '' : addressDetails.shippingAddressCity,
@@ -54,6 +113,26 @@ const CheckoutDetails = () => {
       <div className='my-4'>
         <h3>Shipping Address</h3>
         <div className='form-group'>
+          <input
+            className='form-control mb-2'
+            name='shippingFirstName'
+            placeholder='First Name'
+            required
+            value={addressDetails.shippingFirstName}
+            onChange={onChange}
+          />
+        </div>
+        <div className='form-group mb-2'>
+          <input
+            className='form-control mb-2'
+            name='shippingLastName'
+            placeholder='Last Name'
+            required
+            value={addressDetails.shippingLastName}
+            onChange={onChange}
+          />
+        </div>
+        <div className='form-group mb-2'>
           <input
             className='form-control mb-2'
             name='shippingAddressStreet1'
@@ -83,14 +162,20 @@ const CheckoutDetails = () => {
           />
         </div>
         <div className='form-group mb-2'>
-          <input
+          <select
             className='form-control'
             name='shippingAddressState'
-            placeholder='State'
-            required
             value={addressDetails.shippingAddressState}
             onChange={onChange}
-          />
+            required
+          >
+            <option value=''>Select State</option>
+            {states.map((state) => (
+              <option value={state} key={state}>
+                {state}
+              </option>
+            ))}
+          </select>
         </div>
         <div className='form-group mb-4'>
           <input
@@ -117,6 +202,26 @@ const CheckoutDetails = () => {
               Same as Shipping Address?
             </label>
           </div>
+        </div>
+        <div className='form-group'>
+          <input
+            className='form-control mb-2'
+            name='billingFirstName'
+            placeholder='First Name'
+            required
+            value={addressDetails.billingFirstName}
+            onChange={onChange}
+          />
+        </div>
+        <div className='form-group mb-2'>
+          <input
+            className='form-control mb-2'
+            name='billingLastName'
+            placeholder='Last Name'
+            required
+            value={addressDetails.billingLastName}
+            onChange={onChange}
+          />
         </div>
         <div className='form-group mb-2'>
           <input
@@ -146,13 +251,19 @@ const CheckoutDetails = () => {
           />
         </div>
         <div className='form-group mb-2'>
-          <input
+          <select
             className='form-control'
             name='billingAddressState'
-            placeholder='State'
             value={addressDetails.billingAddressState}
             onChange={onChange}
-          />
+          >
+            <option value=''>Select State</option>
+            {states.map((state) => (
+              <option value={state} key={state}>
+                {state}
+              </option>
+            ))}
+          </select>
         </div>
         <div className='form-group mb-4'>
           <input
@@ -176,6 +287,7 @@ const Message = ({ message }) => {
     </section>
   );
 };
+
 
 const CheckoutForm = () => {
   const [message, setMessage] = useState('');
