@@ -10,6 +10,7 @@ import User from './User/User';
 import Cart from './Cart/Cart';
 import Orders from './Cart/Orders';
 import OrderSuccess from './Cart/OrderSuccess';
+import CreateAccount from './Login/CreateAccount';
 
 import { loginWithToken } from '../store';
 import { logout } from '../store';
@@ -114,6 +115,7 @@ const App = () => {
             <Route path="/products" element={<Products />} />
             <Route path="/products/:id" element={<Product />} />
             <Route path='/login' element={<Login />} />
+            <Route path='/createaccount' element={<CreateAccount />} />
           </Routes>
         </div>
       )}

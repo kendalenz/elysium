@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { attemptLogin } from '../../store';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 // import { Link } from 'react-router-dom';
 
 const Login = () => {
@@ -59,7 +59,12 @@ const Login = () => {
         <label className='mt-4 light-font'>Password</label>
         <input className="form-control" value={credentials.password} onChange={onChange} name='password' />
       </div>
-      <button type="submit" className="btn btn-primary btn-light mt-4" onClick={login}>Log in</button>
+      <div className="d-flex justify-content-between align-items-center mt-4">
+        <button type="submit" className="btn btn-primary btn-light mt-4" onClick={login}>Log in</button>
+        <Link to='/CreateAccount' className="text-white">
+          Create an account
+        </Link>
+      </div>
     </form>
   </div>
   );
