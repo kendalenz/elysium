@@ -42,58 +42,63 @@ const Cart = () => {
 
   return (
     <div className='mx-4 my-4'>
-      <div className='containter'>
-        <div className='row'>
-          <div className='col'>
-            <h1>Your Cart</h1>
-          </div>
-          <div className='col d-flex justify-content-end'>
-            <Link to='/products' className='h-100 d-flex align-items-center'>
-              Continue Shopping
-            </Link>          
-          </div>
-        </div>
-      </div>
-      <div>
-        <div>
-          {cart.lineItems.length > 0 ? (
-            cart.lineItems.map((lineItem) => {
-              const product = products.find((product) => product.id === lineItem.productId);
-              return (
-                <div key={product.id}>
-                  <div>
-                    <Card
-                      id={product.id}
-                      key={product.id}
-                      photo={product.photo}
-                      name={product.name}
-                      price={product.price}
-                      lineItem={lineItem}
-                      quantity={lineItem.quantity}
-                    />
+      {cart.lineItems.length > 0 ? (
+        cart.lineItems.map((lineItem) => {
+          const product = products.find((product) => product.id === lineItem.productId);
+          return (
+            <div >
+              <div className='containter'>
+                <div className='row'>
+                  <div className='col'>
+                    <h1>Your Cart</h1>
                   </div>
+                    <div className='col d-flex justify-content-end'>
+                      <Link to='/products' className='h-100 d-flex align-items-center'>
+                        Continue Shopping
+                      </Link>          
+                    </div>
                 </div>
-              );
-            })
-          ) : (
-            <p>Your cart is empty.</p>
-          )}
+              </div>
+              <div key={product.id}>
+                <Card
+                  id={product.id}
+                  key={product.id}
+                  photo={product.photo}
+                  name={product.name}
+                  price={product.price}
+                  lineItem={lineItem}
+                  quantity={lineItem.quantity}
+                />
+              </div>
+              <div>
+                <Link to='/orders'>
+                  <button
+                    className='btn btn-dark'
+                    id='checkout_btn'
+                    disabled={cart.lineItems.length === 0}
+                  >
+                    Checkout
+                  </button>
+                </Link>
+              </div>
+            </div>
+            );
+          })
+        ) : (
+        <div>
+          <h1>Your Cart</h1>
+          <p>Your cart is empty.</p>
+          <Link to='/products'>
+            <button
+              className='btn btn-dark'
+              id='checkout_btn'
+              disabled={cart.lineItems.length === 0}
+            >
+              Continue Shopping
+            </button>
+          </Link>
         </div>
-        <div id='cart-actions'>
-          <br />
-          <div>
-            <Link to='/orders'>
-              <button
-                className='btn btn-dark'
-                id='checkout_btn'
-                disabled={cart.lineItems.length === 0}
-              >
-                Checkout
-              </button>
-            </Link>
-          </div>
-        </div>
-      </div>
+      )}
     </div>
   );
 };

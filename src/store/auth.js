@@ -16,6 +16,16 @@ export const logout = () => {
   return { type: 'SET_AUTH', auth: {} };
 };
 
+// export const logout = (navigate) => {
+//   return async(dispatch) => {
+//     console.log('Navigate function:', navigate);
+
+//     window.localStorage.removeItem('token');
+//     dispatch({ type: 'SET_AUTH', auth: {} });
+//     navigate('/');
+//   };
+// };
+
 export const loginWithToken = () => {
   return async(dispatch) => {
     const token = getToken();

@@ -21,6 +21,9 @@ const Product = () => {
         <strong>{product.name}</strong>
         <br/>
         ${product.price}
+        <br/>
+        <br/>
+        {product.description}
         <div className='mt-4'>
           <AddToCart />
         </div>

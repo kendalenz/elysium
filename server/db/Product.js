@@ -14,6 +14,13 @@ const Product = conn.define('product', {
         notEmpty: true
     }
   },
+  description: {
+    type: TEXT,
+    allowNull: false,
+    validate: {
+      notEmpty: true
+    }
+  },
   price: {
     type: DECIMAL,
     allowNull: false,

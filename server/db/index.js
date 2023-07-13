@@ -59,17 +59,20 @@ const syncAndSeed = async() => {
     {
       name: 'Moon Juice Reishi Nootropic Supershroom',
       price: '48.00',
-      photo: reishiPhoto
+      photo: reishiPhoto,
+      description: "Reishi is a calming adaptogen known to help balance mood and support concentration. It has been crowned queen healer by TCM because of its ability to strengthen the heart and mind.* It’s also a brain nourisher, immune supporter, and stress reliever.* Ours has 700 mg of 1,3 and 1,6 beta-glucans per serving."
     }, 
     {
       name: 'Falmingo Estate Royal Nectar Manuka Honey',
       price: '135.00',
-      photo: honeyPhoto
+      photo: honeyPhoto,
+      description: "This extremely rare and highly active Honey is certified with over 400+ mg/kg of MGO, NPA of 12+ and 5% fresh Royal Jelly. With its powerful medicinal properties, Manuka Honey is one of nature’s greatest weapons for supporting wellness, containing the highest levels of polyphenols of any Honey. In the hive, Royal Jelly is fed exclusively to the Queen (and the reason she lives 40 times longer than other Bees), packed full of iron, calcium, magnesium, manganese, sulfur, zinc, vitamin B1, B2, B6, C and E. Royal Jelly is rich in antioxidants that help fight the damage caused by free radicals. It’s a miracle."
     },
     {
       name: 'Wellbel Women',
       price: '68.00',
-      photo: wellbelPhoto
+      photo: wellbelPhoto,
+      description: 'Nourish From Within™. Wellbel Women is a drug-free, clean daily supplement, physician-formulated with vegan ingredients that support hair, skin, and nail health. Backed by science, our proprietary blend supports hormonal balance and healthy hair growth cycles.'
     }
   ];
   const [reishi, honey] = await Promise.all(

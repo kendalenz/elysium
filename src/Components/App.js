@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, Routes, Route } from 'react-router-dom';
+import { Link, Routes, Route, useNavigate } from 'react-router-dom';
 import { fetchProducts } from '../store/products';
 import Home from './Home';
 import Products from './Product/Products';
@@ -21,6 +21,7 @@ import { CartElement } from '@stripe/react-stripe-js';
 const App = () => {
   const { auth } = useSelector((state) => state);
   const dispatch = useDispatch();
+  // const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(fetchProducts());
@@ -59,9 +60,6 @@ const App = () => {
                 <li className='nav-item'>
                   <Link className='link-dark mx-4' to='/cart'>Cart</Link>
                 </li>
-                {/* <li className='nav-item'>
-                  <Link className='link-dark mx-4' to='/orders'>Orders</Link>
-                </li> */}
                 <li className='nav-item'>
                   <Link className='link-dark mx-4' to={`/user/${auth.id}`}>Account</Link>
                 </li>
