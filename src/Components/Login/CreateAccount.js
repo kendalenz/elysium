@@ -46,9 +46,9 @@ const CreateAccount = () => {
   }
 
   return (
-    <div className="d-flex justify-content-center align-items-center vh-100">
+    <div className="d-flex justify-content-center mx-4 my-4">
         <div>
-      {!auth.id ? <h2>Create An Account With Us!</h2> : null}
+      {!auth.id ? <h2>Create an Account with Us!</h2> : null}
       {auth.isAdmin ? <h2>Create a New User Account</h2> : null}
       <ul>
         {messages.map((message) => {

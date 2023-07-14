@@ -81,6 +81,14 @@ export const editUser = (user, navigate) => {
   };
 };
 
-//add edit, add and delete
+export const addUser = (credentials) => {
+  return async (dispatch) => {
+    const response = await axios.post('/api/auth/register', credentials);
+    setToken(response.data);
+    dispatch(loginWithToken());
+  };
+};
+
+//add edit and delete
 
 export default auth;
