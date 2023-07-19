@@ -7,6 +7,7 @@ import Products from './Product/Products';
 import Product from './Product/Product';
 import Login from './Login/Login';
 import User from './User/User';
+import EditUser from './User/EditUser';
 import Cart from './Cart/Cart';
 import Orders from './Cart/Orders';
 import OrderSuccess from './Cart/OrderSuccess';
@@ -17,12 +18,12 @@ import { logout } from '../store';
 import { fetchCart } from '../store';
 import OrderCancelled from './Cart/OrderCancelled';
 
-import { CartElement } from '@stripe/react-stripe-js';
+// import { CartElement } from '@stripe/react-stripe-js';
 
 const App = () => {
   const { auth } = useSelector((state) => state);
   const dispatch = useDispatch();
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(fetchProducts());
@@ -35,6 +36,10 @@ const App = () => {
     }
   }, [auth]);
 
+  const loggingout = () => {
+    dispatch(logout());
+    navigate('/');
+  };
 
   return (
     <div>
@@ -65,7 +70,9 @@ const App = () => {
                   <Link className='link-dark mx-4' to={`/user/${auth.id}`}>Account</Link>
                 </li>
                 <li className='nav-item'>
-                  <Link className='link-dark mx-4' to='#' onClick={() => dispatch(logout())}>Log Out</Link>
+                  <Link className='link-dark mx-4' to='#' onClick={loggingout}>Log Out</Link>
+
+                  {/* <Link className='link-dark mx-4' to='#' onClick={() => dispatch(logout())}>Log Out</Link> */}
                 </li>
               </ul>
             </div>
@@ -79,6 +86,7 @@ const App = () => {
             <Route path="/order-success" element={<OrderSuccess />} />
             <Route path='/order-cancelled' element={<OrderCancelled />} />
             <Route path="/user/:id" element={<User />} />
+            <Route path='/users/:id/edit' element={<EditUser />} />
           </Routes>
         </div>
       ) : (

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addUser, createUser } from '../../store';
+import { addUser } from '../../store';
 import { useNavigate } from 'react-router-dom';
 
 const CreateAccount = () => {

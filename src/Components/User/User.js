@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 
 const User = () => {
   const { auth, cart, products } = useSelector((state) => state);
@@ -8,14 +8,26 @@ const User = () => {
   const { id } = useParams();;
 
   return (
-    <div className='mx-4'>
-      <hr></hr>
-        {auth.firstName}
-        <div>
-        <h2>Past Orders</h2>
-        <div>
-          {!cart.isCart
-            ? cart.lineItems.map((item) => {
+    <div className='container my-4'>
+      <div className='row'>
+        <div className='col-12'>
+          <h2>Account Overview</h2>
+          <hr/>
+          <h4>Profile Details</h4>
+          {auth.firstName} {auth.lastName}
+          <br/>
+          {auth.email}
+          <br/>
+          <Link to={`/users/${auth.id}/edit`}>Edit Details</Link>
+        </div>
+      </div>
+      <div className='row'>
+        <div className='col-12'>
+          <hr/>
+          <h4>Past Orders</h4>
+          <div>
+            {!cart.isCart
+              ? cart.lineItems.map((item) => {
                 const product = products.find((p) => p.id === item.productId);
                 const copyText = item.quantity > 1 ? 'items' : 'item';
                 return (
@@ -24,11 +36,12 @@ const User = () => {
                     {dayjs(cart.updatedAt).format('MM/DD/YYYY').toString()}
                   </div>
                 );
-              })
-            : 'You have no past orders.'}
+            })
+          : 'You have no past orders.'}
         </div>
       </div>
     </div>
+  </div>
   );
 };
 

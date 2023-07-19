@@ -33,19 +33,19 @@ const syncAndSeed = async() => {
   const reishiPhoto = await getPhoto(path.join(__dirname, '../../static/products/reishi.jpg'));
   const honeyPhoto = await getPhoto(path.join(__dirname, '../../static/products/honey.jpg'));
   const wellbelPhoto = await getPhoto(path.join(__dirname, '../../static/products/wellbelWomen.jpg'));
-  
+
   const userList = [
     {
       firstName: 'Kendal',
       lastName: 'Enz',
       password: '123',
-      email: 'kendal.enz@gmail.com'
+      email: 'kendal.enz@gmail.com',
     }, 
     {
       firstName: 'Gabriel',
       lastName: 'Zapata',
       password: '123',
-      email: 'gabriel.zapata@gmail.com'
+      email: 'gabriel.zapata@gmail.com',
     }
   ];
 

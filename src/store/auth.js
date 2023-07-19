@@ -89,6 +89,6 @@ export const addUser = (credentials) => {
   };
 };
 
-//add edit and delete
+//add delete
 
 export default auth;
