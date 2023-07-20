@@ -7,14 +7,14 @@ const ProductsByCategory = () => {
 
   const Card = (props) => {
     return (
-      <div className="card mx-4 my-4 border-0">
+      <div className="card mx-4 my-4">
         <Link to={`/products?category=${props.category}`}>
           <img
             src={props.photo}
             className="card-img-top"
             alt="Product"
           />
-          <div className="card-body p-0">
+          <div className="card-body">
             <div className="card-text">
               {props.category} <span>&#8594;</span>
             </div>
