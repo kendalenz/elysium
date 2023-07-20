@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, Routes, Route, useNavigate } from 'react-router-dom';
 import { fetchProducts } from '../store/products';
+import { fetchUsers } from '../store/users';
 import Home from './Home';
 import Products from './Product/Products';
 import Product from './Product/Product';
@@ -28,6 +29,7 @@ const App = () => {
   useEffect(() => {
     dispatch(fetchProducts());
     dispatch(loginWithToken());
+    dispatch(fetchUsers());
   }, []);
 
   useEffect(() => {

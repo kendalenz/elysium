@@ -49,7 +49,7 @@ export const updateAuth = (auth, navigate)=> {
       }
     });
     dispatch({ type: 'SET_AUTH', auth: response.data });
-    navigate(`/users/${auth.id}`);
+    navigate(`/user/${auth.id}`);
   };
 };
 

@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { editUser, updateAuth } from '../../store';
+import { updateAuth } from '../../store';
 
 const EditUser = () => {
     const dispatch = useDispatch();
