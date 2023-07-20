@@ -44,6 +44,9 @@ const Product = conn.define('product', {
         }
         return `${prefixPNG}${data}`;
       },
+    },
+    category: {
+      type: TEXT
     }
   }
 );

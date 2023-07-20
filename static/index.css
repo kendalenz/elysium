@@ -38,6 +38,11 @@ body {
     }
   }
 
+  #shop-by-category {
+    padding-left: 10rem;
+    padding-right: 10rem;
+  }
+
   #cartCard {
     width: 100%;
   }
@@ -96,4 +101,8 @@ body {
     #checkout_btn {
       font-size: 1rem;
     }
+  }
+
+  #product-filter {
+    width: 20%;
   }

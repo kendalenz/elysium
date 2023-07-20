@@ -1,4 +1,7 @@
 import React from 'react';
+import ProductCategory from './Product/ProductsByCategory';
+import ProductsByCategory from './Product/ProductsByCategory';
+
 
 const Home = () => {
   return (
@@ -13,6 +16,10 @@ const Home = () => {
       </section>
       <div className="lead" id='home-text'>
         <strong>Elysium takes great pride in being both a Certified Organic Retailer and a Certified B Corp.</strong> At Elysium, we firmly believe that nourishment is the gateway to a vibrant way of living. By means of our establishments, we strive to offer extraordinary organic goods that foster informed choices and healthier societies.
+      </div>
+      <div id='shop-by-category'>
+        <h2 className='mb-4'>Shop By Category</h2>
+        <ProductsByCategory />
       </div>
     </div>
     )
