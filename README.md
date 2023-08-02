@@ -2,7 +2,7 @@
 
 This is a mock e-commerce site for organic productts built using JavaScript, React, Redux, Express, Sequelize, PostgreSQL, RESTful APIs, Bootstrap, CSS and HTML. Users can create and update accounts and purchase products through Stripe.
 
-The app was deployed on Render and can be viewed at: https://earthen-foods.onrender.com/. ** Please Note: ** This app is deployed on a free instance of Render and will initially take up to 90 seconds to load. 
+The app was deployed on Render and can be viewed at: https://earthen-foods.onrender.com/. **Please Note:** This app is deployed on a free instance of Render and will initially take up to 90 seconds to load. 
 
 ## Features
 Users can create/edit accounts
