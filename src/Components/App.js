@@ -73,7 +73,6 @@ const App = () => {
                 </li>
                 <li className='nav-item'>
                   <Link className='link-dark mx-4' to='#' onClick={loggingout}>Log Out</Link>
-
                   {/* <Link className='link-dark mx-4' to='#' onClick={() => dispatch(logout())}>Log Out</Link> */}
                 </li>
               </ul>
